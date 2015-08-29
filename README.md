@@ -2,6 +2,11 @@
 Mount alerting system to [Ruboty]("https://github.com/r7kamura/ruboty") to notify calendar schedules with iCal urls.
 
 ## Usage
+```ruby
+# Gemfile
+gem 'ruboty-calendar_alert', github: 'mallowlabs/ruboty-calendar_alert'
+```
+
 See below commands. You can use any iCal urls.
 
 ```
