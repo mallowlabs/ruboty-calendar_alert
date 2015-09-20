@@ -124,8 +124,8 @@ module Ruboty
       end
 
       def fetch_schedule
-        #"23 2,8,14,20 * * *"
-        "10 * * * *"
+        "23 2,8,14,20 * * *"
+        #"10 * * * *"
       end
 
       def start_fetch_thread(robot)
