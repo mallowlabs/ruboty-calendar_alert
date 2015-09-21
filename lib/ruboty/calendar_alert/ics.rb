@@ -8,16 +8,21 @@ module Ruboty
       end
 
       def fetch
-        cals = Icalendar.parse(open(url))
-        cal = cals.first
+        begin
+          cals = Icalendar.parse(open(url))
+          cal = cals.first
 
-        cal.events.map { |e|
-          Ruboty::CalendarAlert::Alert.new(e)
-        }.select { |a|
-          a.today?
-        }.map { |a|
-          a.to_hash
-        }
+          cal.events.map { |e|
+            Ruboty::CalendarAlert::Alert.new(e)
+          }.select { |a|
+            a.today?
+          }.map { |a|
+            a.to_hash
+          }
+        rescue => e
+          Ruboty.logger.error e.message
+          {}
+        end
       end
 
       def url
