@@ -19,7 +19,9 @@ module Ruboty
       def body
         body = "#{event.summary} まで#{margin}分です。"
         body << "\n#{event.description}" unless event.description.blank?
-        body << "\n#{event.url}" unless event.url.blank?
+        unless event.url.blank?
+          body << "\n#{event.url}" unless (event.description || '').include?(event.url)
+        end
         body.strip
       end
 
